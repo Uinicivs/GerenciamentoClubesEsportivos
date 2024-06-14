@@ -53,5 +53,9 @@ namespace GerenciamentoClubesEsportivos.Models.Repositories
         {
             return Members.Where(m => m.Name.ToLower().Contains(query.ToLower())).ToList();
         }
+        public void AddAll(List<Member> members)
+        {
+            Members.AddRange(members);
+        }
     }
 }

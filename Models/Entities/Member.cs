@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoClubesEsportivos.Models.Entities
 {
-    internal class Member : User
+    public class Member : User
     {
         private string? email;
         private string? phoneNumber;

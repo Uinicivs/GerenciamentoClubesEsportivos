@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoClubesEsportivos.Models.Entities
 {
-    internal abstract class User
+    public abstract class User
     {
         private int id;
         private string? name;

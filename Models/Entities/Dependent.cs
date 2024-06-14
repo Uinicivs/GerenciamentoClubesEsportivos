@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GerenciamentoClubesEsportivos.Models.Entities
 {
-    internal class Dependent : User
+    public class Dependent : User
     {
         private string Kindship {  get; set; }
         private int MemberID { get; set; }

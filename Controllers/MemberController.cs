@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GerenciamentoClubesEsportivos.Models.Entities;
+using GerenciamentoClubesEsportivos.Models.Services;
 using GerenciamentoClubesEsportivos.Utils.Factories;
 using GerenciamentoClubesEsportivos.Utils.Interfaces;
 
@@ -36,6 +37,20 @@ namespace GerenciamentoClubesEsportivos.Controllers
         public List<Member> GetAllMembers()
         {
             return repository.GetAll();
+        }
+
+        public List<Member> ImportFromXmlFile(string filePath)
+        {
+            List<Member> members = XmlService.DeserializeFromFile<Member>(filePath);
+            if (members == null) return null;
+
+            repository.AddAll(members);
+
+            return members;
+        }
+        public void ExportAsXmlFile(List<Member> test)
+        {
+            XmlService.SerializeToFile(test, @"C:\", "Members");
         }
     }
 }
