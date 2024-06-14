@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GerenciamentoClubesEsportivos.Models.Entities;
+using GerenciamentoClubesEsportivos.Models.Services;
 using GerenciamentoClubesEsportivos.Utils.Factories;
 using GerenciamentoClubesEsportivos.Utils.Interfaces;
 
@@ -46,20 +47,10 @@ namespace GerenciamentoClubesEsportivos.Controllers
             repository.AddAll(members);
 
             return members;
-
         }
-        public string ExportAsXmlFile(List<Member> test)
+        public void ExportAsXmlFile(List<Member> test)
         {
-            try
-            {
-                XmlService.SerializeToFile(test, @"C:\Users\walys\source\repos\GerenciamentoClubesEsportivos", "testeee");
-                return "Succes exporting";
-            }
-            catch (Exception ex)
-            {
-                return "Error exporting " + ex.Message;
-            }
-
+            XmlService.SerializeToFile(test, @"C:\", "Members");
         }
     }
 }
