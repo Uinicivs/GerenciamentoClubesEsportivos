@@ -37,5 +37,29 @@ namespace GerenciamentoClubesEsportivos.Controllers
         {
             return repository.GetAll();
         }
+
+        public List<Member> ImportFromXmlFile(string filePath)
+        {
+            List<Member> members = XmlService.DeserializeFromFile<Member>(filePath);
+            if (members == null) return null;
+
+            repository.AddAll(members);
+
+            return members;
+
+        }
+        public string ExportAsXmlFile(List<Member> test)
+        {
+            try
+            {
+                XmlService.SerializeToFile(test, @"C:\Users\walys\source\repos\GerenciamentoClubesEsportivos", "testeee");
+                return "Succes exporting";
+            }
+            catch (Exception ex)
+            {
+                return "Error exporting " + ex.Message;
+            }
+
+        }
     }
 }

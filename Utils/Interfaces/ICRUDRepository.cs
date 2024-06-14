@@ -12,6 +12,7 @@ namespace GerenciamentoClubesEsportivos.Utils.Interfaces
         List<T> Search(string query);
         T GetByID(int id);
         void Add(T entity);
+        void AddAll(List<T> members);
         void Update(T entity);
         void Delete(T entity);
     }
